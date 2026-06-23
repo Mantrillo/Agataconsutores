@@ -1,0 +1,757 @@
+/* ==========================================================================
+   AGATA. Tech Advisory - Color System & Typography (Manual de Marca V1.0)
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --color-tinta: #15140F;     /* Wordmark, headers, body, dark bg */
+  --color-papel: #F6F4EF;     /* Main background (warm off-white) */
+  --color-bruma: #9A968D;     /* Secondary text, captions, borders */
+  --color-cinabrio: #7A2E1F;  /* Accent: logo dot, links, functional emphasis */
+  
+  /* Font Families */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  /* Layout Spacing Basis */
+  --space-x: 1.5rem;          /* Base spacing unit */
+}
+
+/* ==========================================================================
+   Base Elements & Reset
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-papel);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding: 0 var(--space-x);
+}
+
+/* ==========================================================================
+   Typography Rules (Page 7)
+   ========================================================================== */
+
+h1, .display-title {
+  font-family: var(--font-sans);
+  font-weight: 200;
+  font-size: clamp(2.5rem, 5vw, 4.5rem); /* 72px at scale */
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--color-tinta);
+}
+
+h2, .section-title {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 3.5vw, 3rem); /* 48px at scale */
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--color-tinta);
+}
+
+h3, .service-name, .method-step-title {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.5vw, 2rem); /* 32px at scale */
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-tinta);
+}
+
+h4, .value-title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.375rem; /* 22px */
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--color-tinta);
+}
+
+p, .body-text {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.0625rem; /* 17px */
+  letter-spacing: 0;
+  line-height: 1.55;
+  color: var(--color-tinta);
+}
+
+.text-secondary, .service-desc, .method-step-desc, .value-desc {
+  color: var(--color-bruma);
+}
+
+small, .text-small {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.8125rem; /* 13px */
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.section-tag, .pillar-name, .pillar-num, .meta-item, .method-step-num, .contact-label, .form-label, .footer-col-title {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.75rem; /* 12px */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-bruma);
+}
+
+/* ==========================================================================
+   Layout Containers & Dividers
+   ========================================================================== */
+
+.site-header, .hero-section, .section-container, .site-footer {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid rgba(154, 150, 141, 0.3); /* Thin Bruma divider */
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Header Design
+   ========================================================================== */
+
+.site-header {
+  padding: 2.5rem 0;
+  position: relative;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/* Logo: agata. (Inter Medium, track -0.04em, no border box) */
+.logo {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  color: var(--color-tinta);
+  display: inline-block;
+  user-select: none;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+.logo-dot {
+  color: var(--color-cinabrio);
+}
+
+/* Nav Menu (DM Mono, uppercase) */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: var(--color-tinta);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-cinabrio);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-cinabrio);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Mobile Nav Toggle */
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-tinta);
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.hamburger::before, .hamburger::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-tinta);
+  left: 0;
+  transition: transform 0.2s ease, top 0.2s ease;
+}
+
+.hamburger::before {
+  top: -6px;
+}
+
+.hamburger::after {
+  top: 6px;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero-section {
+  padding: 6rem 0 4rem 0;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.display-title {
+  max-width: 1100px;
+}
+
+.hero-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.meta-item {
+  color: var(--color-bruma);
+  font-size: 0.7rem;
+}
+
+.hero-pillars-grid {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.pillar-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pillar-num {
+  font-size: 0.65rem;
+  color: var(--color-bruma);
+}
+
+.pillar-name {
+  color: var(--color-tinta);
+  font-size: 0.75rem;
+}
+
+.hero-action-container {
+  text-align: right;
+}
+
+.action-link {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  color: var(--color-cinabrio);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.action-link:hover {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Section Standard Layout (Grid 2 columns)
+   ========================================================================== */
+
+.section-container {
+  padding: 8rem 0;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  gap: 4rem;
+}
+
+.section-header-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 400px;
+}
+
+.section-tag {
+  color: var(--color-cinabrio);
+}
+
+.section-subtitle {
+  color: var(--color-bruma);
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Trabajo (Services) Specifics
+   ========================================================================== */
+
+.services-list-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(154, 150, 141, 0.15);
+  padding-bottom: 2.5rem;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.service-name {
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   Método Specifics
+   ========================================================================== */
+
+.method-steps-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.method-intro-paragraph {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.method-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-left: 2rem;
+  border-left: 2px solid var(--color-tinta);
+}
+
+.method-step:hover {
+  border-left-color: var(--color-cinabrio);
+  transition: border-color 0.2s ease;
+}
+
+.method-step-num {
+  color: var(--color-cinabrio);
+}
+
+.method-step-title {
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   Equipo Specifics
+   ========================================================================== */
+
+.team-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.team-manifesto {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.team-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.value-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* ==========================================================================
+   Contacto & Form Specifics
+   ========================================================================== */
+
+.direct-contact-info {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-email {
+  font-size: 1.1rem;
+  color: var(--color-tinta);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.contact-email:hover {
+  color: var(--color-cinabrio);
+}
+
+.contact-form-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.minimal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-bruma);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  padding: 0.75rem 0;
+  color: var(--color-tinta);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  border-bottom-color: var(--color-cinabrio);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-submit-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.submit-btn {
+  background-color: var(--color-tinta);
+  color: var(--color-papel);
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--color-cinabrio);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+.form-status-message {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  min-height: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.form-status-message.success {
+  color: #2e7d32;
+}
+
+.form-status-message.error {
+  color: var(--color-cinabrio);
+}
+
+/* ==========================================================================
+   Footer Section
+   ========================================================================== */
+
+.site-footer {
+  padding: 5rem 0 3rem 0;
+  border-top: 1px solid rgba(154, 150, 141, 0.3);
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
+  color: var(--color-tinta);
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--color-bruma);
+}
+
+.footer-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-col-val {
+  font-size: 0.75rem;
+  color: var(--color-tinta);
+}
+
+.footer-link {
+  font-size: 0.75rem;
+  color: var(--color-tinta);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-cinabrio);
+}
+
+/* ==========================================================================
+   Media Queries & Responsive Adaptation
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .section-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .section-header-col {
+    max-width: 100%;
+  }
+  
+  .hero-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  
+  .hero-action-container {
+    text-align: left;
+    grid-column: span 2;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .footer-details-grid {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 1rem;
+  }
+  
+  .site-header {
+    padding: 1.5rem 0;
+  }
+  
+  /* Mobile Navigation Menu */
+  .mobile-nav-toggle {
+    display: block;
+  }
+  
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: -1rem;
+    right: -1rem;
+    background-color: var(--color-papel);
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(154, 150, 141, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  }
+  
+  .nav-menu.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .nav-list {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  
+  .nav-link {
+    font-size: 0.85rem;
+  }
+  
+  /* Hamburger active state */
+  .mobile-nav-toggle[aria-expanded="true"] .hamburger {
+    background-color: transparent;
+  }
+  
+  .mobile-nav-toggle[aria-expanded="true"] .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  
+  .mobile-nav-toggle[aria-expanded="true"] .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  .hero-section {
+    padding: 4rem 0 2rem 0;
+    min-height: 60vh;
+  }
+  
+  .hero-container {
+    gap: 4rem;
+  }
+  
+  .hero-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .hero-pillars-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero-action-container {
+    grid-column: span 1;
+  }
+  
+  .section-container {
+    padding: 4rem 0;
+  }
+  
+  .team-values {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-details-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
